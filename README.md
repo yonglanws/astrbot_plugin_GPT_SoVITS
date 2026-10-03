@@ -4,7 +4,7 @@
 
 _为 AstrBot 提供多角色、多语言的 GPT-SoVITS 语音合成（TTS）_
 
-[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
+[![License](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![AstrBot](https://img.shields.io/badge/AstrBot-4.0%2B-orange.svg)](https://github.com/AstrBotDevs/AstrBot)
 
@@ -278,4 +278,4 @@ pause
 - 框架：[AstrBot](https://github.com/AstrBotDevs/AstrBot)
 - 角色别名数据来自 [Project Sekai](https://pjsekai.com/) 角色资料整理
 
-本项目遵循 [GPL-3.0](./LICENSE) 许可证开源。
+本项目遵循 [AGPL-3.0](./LICENSE) 许可证开源。

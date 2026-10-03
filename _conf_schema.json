@@ -1,0 +1,466 @@
+{
+  "enabled": {
+    "description": "总开关",
+    "type": "bool",
+    "hint": "GPT-SoVITS 插件总开关，请在部署好 GPT-SoVITS 后再打开此开关",
+    "default": true
+  },
+  "auto_detect_lang": {
+    "description": "自动识别文本语言",
+    "hint": "未显式指定语言时，自动检测文本语言（中/日/英）并设置 text_lang，优先级高于人格配置和翻译配置",
+    "type": "bool",
+    "default": true
+  },
+  "auto": {
+    "description": "调用配置",
+    "type": "object",
+    "hint": "本插件有一定概率主动将bot本来要发送的文本转成语音发送",
+    "items": {
+      "only_llm_result": {
+        "description": "只处理LLM结果",
+        "type": "bool",
+        "hint": "只处理 LLM 返回的消息。建议打开",
+        "default": true
+      },
+      "tts_prob": {
+        "description": "主动转语音发送的概率",
+        "type": "float",
+        "hint": "",
+        "slider": {
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        "default": 0.15
+      },
+      "max_msg_len": {
+        "description": "文本长度限制",
+        "type": "int",
+        "hint": "超过此长度的文本不会被转成语音发送",
+        "slider": {
+          "min": 0,
+          "max": 200,
+          "step": 1
+        },
+        "default": 50
+      }
+    }
+  },
+  "client": {
+    "description": "客户端配置",
+    "type": "object",
+    "hint": "",
+    "items": {
+      "base_url": {
+        "description": "GPT-SoVITS API 的 URL",
+        "type": "string",
+        "hint": "必填！GPT_SoVITS官方整合包默认为 http://127.0.0.1:9880 ，第三方整合包可能不同",
+        "default": "http://127.0.0.1:9880"
+      },
+      "timeout": {
+        "description": "GPT-SoVITS API 请求超时时间",
+        "hint": "单位为秒",
+        "type": "int",
+        "slider": {
+          "min": 30,
+          "max": 180,
+          "step": 1
+        },
+        "default": 60
+      }
+    }
+  },
+  "model": {
+    "description": "模型配置",
+    "type": "object",
+    "hint": "",
+    "items": {
+      "gpt_path": {
+        "description": "GPT模型文件路径",
+        "type": "string",
+        "hint": "即“.ckpt”后缀的文件。请使用 “/” 分隔路径，支持绝对路径和相对路径。不填则默认用 GPT_SoVITS 内置 GPT 模型",
+        "default": ""
+      },
+      "sovits_path": {
+        "description": "SoVITS模型文件路径",
+        "type": "string",
+        "hint": "即“.pth”后缀的文件。请使用 “/” 分隔路径，支持绝对路径和相对路径。不填则默认用 GPT_SoVITS 内置 SoVITS 模型",
+        "default": ""
+      }
+    }
+  },
+  "default_params": {
+    "description": "TTS默认参数",
+    "type": "object",
+    "hint": "这些参数将用于每次语音合成请求，可根据需要调整",
+    "items": {
+      "text": {
+        "description": "要转换为语音的文本",
+        "type": "string",
+        "hint": "支持任意语言，但需与 text_lang 匹配",
+        "default": "你要干嘛？"
+      },
+      "text_lang": {
+        "description": "文本语言",
+        "type": "string",
+        "hint": "要转化的文本的语言",
+        "options": [
+          "zh",
+          "en",
+          "ja",
+          "ko"
+        ],
+        "labels": [
+          "中文",
+          "英语",
+          "日语",
+          "韩语"
+        ],
+        "default": "zh"
+      },
+      "ref_audio_path": {
+        "description": "参考音频路径",
+        "type": "string",
+        "hint": "用于音色克隆，请使用 “/” 分隔路径，支持 wav 格式，必填。",
+        "default": "data/plugins/astrbot_plugin_GPT_SoVITS/default_audio/就算是这样，也不至于直接碎掉啊，除非.wav"
+      },
+      "prompt_text": {
+        "description": "参考音频对应的文本",
+        "type": "string",
+        "hint": "用于对齐音色与内容，建议填写",
+        "default": "就算是这样，也不至于直接碎掉啊，除非"
+      },
+      "prompt_lang": {
+        "description": "参考音频文本语言",
+        "type": "string",
+        "hint": "尽量与 prompt_text 语言一致",
+        "options": [
+          "zh",
+          "en",
+          "ja",
+          "ko"
+        ],
+        "labels": [
+          "中文",
+          "英语",
+          "日语",
+          "韩语"
+        ],
+        "default": "zh"
+      },
+      "top_k": {
+        "description": "Top-K 采样",
+        "type": "int",
+        "hint": "控制生成语音的多样性，值越大越多样",
+        "slider": {
+          "min": 1,
+          "max": 20,
+          "step": 1
+        },
+        "default": 5
+      },
+      "top_p": {
+        "description": "Top-P 核采样",
+        "type": "float",
+        "hint": "控制采样范围，1.0 表示不限制",
+        "slider": {
+          "min": 0.1,
+          "max": 1.0,
+          "step": 0.01
+        },
+        "default": 1.0
+      },
+      "temperature": {
+        "description": "采样温度",
+        "type": "float",
+        "hint": "控制随机性，1.0 为原始分布，越低越保守",
+        "slider": {
+          "min": 0.1,
+          "max": 2.0,
+          "step": 0.01
+        },
+        "default": 1.0
+      },
+      "text_split_method": {
+        "description": "文本切分方式",
+        "type": "string",
+        "hint": "影响长文本处理效果",
+        "options": [
+          "cut0",
+          "cut1",
+          "cut2",
+          "cut3",
+          "cut4",
+          "cut5"
+        ],
+        "labels": [
+          "不切分",
+          "四句一切",
+          "50字一切",
+          "按中文句号切",
+          "按英文句号切",
+          "按标点符号切"
+        ],
+        "default": "cut3"
+      },
+      "batch_size": {
+        "description": "推理批大小",
+        "type": "int",
+        "hint": "越大越快但越占显存",
+        "slider": {
+          "min": 1,
+          "max": 5,
+          "step": 1
+        },
+        "default": 1
+      },
+      "batch_threshold": {
+        "description": "批处理阈值",
+        "type": "float",
+        "hint": "控制是否拆分批次",
+        "slider": {
+          "min": 0.1,
+          "max": 1.0,
+          "step": 0.01
+        },
+        "default": 0.75
+      },
+      "split_bucket": {
+        "description": "启用分桶推理",
+        "type": "bool",
+        "hint": "开启后可并行处理长文本，建议开启",
+        "default": true
+      },
+      "speed_factor": {
+        "description": "语速倍数",
+        "type": "float",
+        "hint": "1.0 为原速",
+        "slider": {
+          "min": 0.5,
+          "max": 2.0,
+          "step": 0.1
+        },
+        "default": 1.0
+      },
+      "fragment_interval": {
+        "description": "语音片段间隔",
+        "type": "float",
+        "hint": "单位：秒，影响停顿感",
+        "slider": {
+          "min": 0.1,
+          "max": 1.0,
+          "step": 0.01
+        },
+        "default": 0.3
+      },
+      "streaming_mode": {
+        "description": "启用流式返回",
+        "type": "bool",
+        "hint": "开启后逐步返回音频流，适合长文本",
+        "default": false
+      },
+      "seed": {
+        "description": "随机种子",
+        "type": "int",
+        "hint": "-1 为随机，设定后可复现结果",
+        "default": -1
+      },
+      "parallel_infer": {
+        "description": "启用并行推理",
+        "type": "bool",
+        "hint": "开启后可提升速度，建议开启",
+        "default": true
+      },
+      "repetition_penalty": {
+        "description": "重复惩罚系数",
+        "type": "float",
+        "hint": "越高越不容易重复",
+        "slider": {
+          "min": 1.0,
+          "max": 3.0,
+          "step": 0.01
+        },
+        "default": 1.35
+      },
+      "media_type": {
+        "description": "输出音频格式",
+        "type": "string",
+        "hint": "建议 wav，兼容性好",
+        "options": [
+          "wav",
+          "mp3",
+          "ogg"
+        ],
+        "default": "wav"
+      }
+    }
+  },
+  "translate": {
+    "description": "翻译配置",
+    "hint": "开启后，LLM 生成的中文文本会先翻译成目标语言再进行语音合成，适合使用日语等非中文语音模型",
+    "type": "object",
+    "items": {
+      "enabled": {
+        "description": "启用翻译",
+        "type": "bool",
+        "hint": "开启后，语音合成前会将中文文本翻译为目标语言",
+        "default": false
+      },
+      "provider_id": {
+        "description": "翻译用的LLM提供商",
+        "type": "string",
+        "default": "",
+        "hint": "留空或填写的提供商不存在时，使用当前会话的LLM提供商。建议用稳定便宜又快速的小模型",
+        "_special": "select_provider"
+      },
+      "target_lang": {
+        "description": "目标语言",
+        "type": "string",
+        "hint": "翻译后的文本语言，同时会作为 TTS 的 text_lang 参数",
+        "options": [
+          "ja",
+          "zh",
+          "en",
+          "ko"
+        ],
+        "labels": [
+          "日语",
+          "中文",
+          "英语",
+          "韩语"
+        ],
+        "default": "ja"
+      }
+    }
+  },
+  "cache": {
+    "description": "缓存配置",
+    "type": "object",
+    "hint": "",
+    "items": {
+      "enabled": {
+        "description": "启用语音缓存",
+        "hint": "开启后，请求参数一致时直接复用本地缓存音频，减少重复推理",
+        "type": "bool",
+        "default": true
+      },
+      "expire_hours": {
+        "description": "缓存过期时间(h)",
+        "hint": "单位为小时。 0 表示永不过期，大于 0 时按文件修改时间判断是否过期",
+        "type": "int",
+        "slider": {
+          "min": 0,
+          "max": 240,
+          "step": 1
+        },
+        "default": 0
+      },
+      "path": {
+        "description": "缓存路径",
+        "hint": "留空时默认使用 AstrBot 临时目录 data/temp/astrbot_plugin_GPT_SoVITS（由 AstrBot 自动清理）；支持自定义相对/绝对路径，请使用 “/” 分隔",
+        "type": "string",
+        "default": ""
+      }
+    }
+  },
+  "persona_storage": {
+    "description": "人物参数配置",
+    "hint": "根据人格ID自动切换对应的语音模型和参考音频。当人格ID匹配时，使用此处的配置覆盖默认参数",
+    "type": "template_list",
+    "templates": {
+      "default": {
+        "name": "人物条目",
+        "items": {
+          "persona_id": {
+            "description": "人格ID",
+            "type": "string",
+            "hint": "AstrBot 中人格设定的人格ID，必须与此处填写的一致才会触发",
+            "default": "请输入人格ID"
+          },
+          "gpt_path": {
+            "description": "GPT模型文件路径",
+            "type": "string",
+            "hint": "即“.ckpt”后缀的文件。留空则使用默认GPT模型",
+            "default": ""
+          },
+          "sovits_path": {
+            "description": "SoVITS模型文件路径",
+            "type": "string",
+            "hint": "即“.pth”后缀的文件。留空则使用默认SoVITS模型",
+            "default": ""
+          },
+          "ref_audio_path": {
+            "description": "参考音频文件路径",
+            "type": "string",
+            "hint": "用于音色克隆，请使用 “/” 分隔路径，支持 wav 格式。留空则使用默认参考音频",
+            "default": ""
+          },
+          "prompt_text": {
+            "description": "参考音频对应的文本",
+            "type": "string",
+            "hint": "建议填写，用于对齐音色与内容",
+            "default": ""
+          },
+          "prompt_lang": {
+            "description": "参考音频文本语言",
+            "type": "string",
+            "hint": "与参考音频对应的文本的语言保持一致",
+            "options": [
+              "zh",
+              "en",
+              "ja",
+              "ko"
+            ],
+            "labels": [
+              "中文",
+              "英语",
+              "日语",
+              "韩语"
+            ],
+            "default": "zh"
+          },
+          "text_lang": {
+            "description": "合成文本语言",
+            "type": "string",
+            "hint": "要合成的文本的语言",
+            "options": [
+              "zh",
+              "en",
+              "ja",
+              "ko"
+            ],
+            "labels": [
+              "中文",
+              "英语",
+              "日语",
+              "韩语"
+            ],
+            "default": "zh"
+          },
+          "speed_factor": {
+            "description": "语速倍数",
+            "type": "float",
+            "hint": "1.0 为原速",
+            "slider": {
+              "min": 0.5,
+              "max": 2,
+              "step": 0.1
+            },
+            "default": 1.0
+          },
+          "fragment_interval": {
+            "description": "语音片段间隔（秒）",
+            "type": "float",
+            "hint": "间隔越短语气越急促",
+            "slider": {
+              "min": 0.1,
+              "max": 2,
+              "step": 0.1
+            },
+            "default": 0.3
+          }
+        }
+      }
+    }
+  }
+}

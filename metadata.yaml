@@ -1,0 +1,7 @@
+name: astrbot_plugin_GPT_SoVITS
+display_name: GPT_SoVITS
+desc: 对接本地部署的GPT_SoVITS，为AstrBot提供多角色、多语言的文本转语音(TTS)服务，支持人格绑定音色、角色别名、中/日/英翻译与自动语言识别
+help: 发送"说 你好 人格 语言"合成语音，详见 README
+version: v3.4.2
+author: Zhalslar
+repo: https://github.com/yonglanws/astrbot_plugin_GPT_SoVITS

@@ -1,0 +1,459 @@
+[
+    {
+        "characterId": 1,
+        "name": "ick",
+        "fullName": "星乃一歌",
+        "fullNameChinese": "星乃一歌",
+        "aliases": [
+            "小一",
+            "一歌",
+            "一",
+            "炒面面包",
+            "一酱"
+        ]
+    },
+    {
+        "characterId": 2,
+        "name": "saki",
+        "fullName": "天馬咲希",
+        "fullNameChinese": "天马咲希",
+        "aliases": [
+            "咲希",
+            "咲咲",
+            "sk"
+        ]
+    },
+    {
+        "characterId": 3,
+        "name": "hnm",
+        "fullName": "望月穂波",
+        "fullNameChinese": "望月穗波",
+        "aliases": [
+            "穗波",
+            "小穗",
+            "苹果派",
+            "家政",
+            "萍"
+        ]
+    },
+    {
+        "characterId": 4,
+        "name": "shiho",
+        "fullName": "日野森志歩",
+        "fullNameChinese": "日野森志步",
+        "aliases": [
+            "志步",
+            "小步",
+            "步步",
+            "吸",
+            "吸酱",
+            "拉面",
+            "sh"
+        ]
+    },
+    {
+        "characterId": 5,
+        "name": "mnr",
+        "fullName": "花里みのり",
+        "fullNameChinese": "花里实乃理",
+        "aliases": [
+            "实乃理",
+            "实",
+            "小实",
+            "花"
+        ]
+    },
+    {
+        "characterId": 6,
+        "name": "hrk",
+        "fullName": "桐谷遥",
+        "fullNameChinese": "桐谷遥",
+        "aliases": [
+            "遥",
+            "企鹅"
+        ]
+    },
+    {
+        "characterId": 7,
+        "name": "airi",
+        "fullName": "桃井愛莉",
+        "fullNameChinese": "桃井爱莉",
+        "aliases": [
+            "爱莉",
+            "爱"
+        ]
+    },
+    {
+        "characterId": 8,
+        "name": "szk",
+        "fullName": "日野森雫",
+        "fullNameChinese": "日野森雫",
+        "aliases": [
+            "雫",
+            "shizuku",
+            "水滴"
+        ]
+    },
+    {
+        "characterId": 9,
+        "name": "khn",
+        "fullName": "小豆沢こはね",
+        "fullNameChinese": "小豆泽心羽",
+        "aliases": [
+            "心羽",
+            "豆",
+            "小豆",
+            "仓鼠",
+            "kohane"
+        ]
+    },
+    {
+        "characterId": 10,
+        "name": "an",
+        "fullName": "白石杏",
+        "fullNameChinese": "白石杏",
+        "aliases": [
+            "杏",
+            "安",
+            "安酱"
+        ]
+    },
+    {
+        "characterId": 11,
+        "name": "akt",
+        "fullName": "東雲彰人",
+        "fullNameChinese": "东云彰人",
+        "aliases": [
+            "彰人",
+            "弟弟君",
+            "饼"
+        ]
+    },
+    {
+        "characterId": 12,
+        "name": "toya",
+        "fullName": "青柳冬弥",
+        "fullNameChinese": "青柳冬弥",
+        "aliases": [
+            "冬弥",
+            "董秘",
+            "咖"
+        ]
+    },
+    {
+        "characterId": 13,
+        "name": "tks",
+        "fullName": "天馬司",
+        "fullNameChinese": "天马司",
+        "aliases": [
+            "司",
+            "大明星",
+            "tsukasa"
+        ]
+    },
+    {
+        "characterId": 14,
+        "name": "emu",
+        "fullName": "鳳えむ",
+        "fullNameChinese": "凤笑梦",
+        "aliases": [
+            "姆",
+            "姆姆",
+            "汪大吼"
+        ]
+    },
+    {
+        "characterId": 15,
+        "name": "nene",
+        "fullName": "草薙寧々",
+        "fullNameChinese": "草薙宁宁",
+        "aliases": [
+            "宁",
+            "宁宁",
+            "捏捏"
+        ]
+    },
+    {
+        "characterId": 16,
+        "name": "rui",
+        "fullName": "神代類",
+        "fullNameChinese": "神代类",
+        "aliases": [
+            "类",
+            "雷",
+            "沈大雷"
+        ]
+    },
+    {
+        "characterId": 17,
+        "name": "knd",
+        "fullName": "宵崎奏",
+        "fullNameChinese": "宵崎奏",
+        "aliases": [
+            "奏",
+            "杯面",
+            "泡面",
+            "k",
+            "小气走",
+            "kanade"
+        ]
+    },
+    {
+        "characterId": 18,
+        "name": "mfy",
+        "fullName": "朝比奈まふゆ",
+        "fullNameChinese": "朝比奈真冬",
+        "aliases": [
+            "真冬",
+            "马",
+            "马福友",
+            "雪",
+            "Yuki",
+            "mafuyu"
+        ]
+    },
+    {
+        "characterId": 19,
+        "name": "ena",
+        "fullName": "東雲絵名",
+        "fullNameChinese": "东云绘名",
+        "aliases": [
+            "绘名",
+            "画",
+            "绘"
+        ]
+    },
+    {
+        "characterId": 20,
+        "name": "mzk",
+        "fullName": "暁山瑞希",
+        "fullNameChinese": "晓山瑞希",
+        "aliases": [
+            "瑞希",
+            "糖",
+            "糖糖",
+            "mizuki"
+        ]
+    },
+    {
+        "characterId": 21,
+        "fullNameChinese": "奏的母亲",
+        "aliases": [
+            "奏母",
+            "奏妈"
+        ]
+    },
+    {
+        "characterId": 22,
+        "fullNameChinese": "奏的父亲",
+        "aliases": [
+            "奏父",
+            "奏爸"
+        ]
+    },
+    {
+        "characterId": 23,
+        "fullNameChinese": "真冬的母亲",
+        "aliases": [
+            "真冬母",
+            "真冬妈"
+        ]
+    },
+    {
+        "characterId": 24,
+        "fullNameChinese": "晓山优希",
+        "aliases": [
+            "瑞希姐",
+            "瑞希的姐姐"
+        ]
+    },
+    {
+        "characterId": 27,
+        "name": "meiko",
+        "fullName": "MEIKO",
+        "fullNameChinese": "MEIKO",
+        "aliases": [
+            "meiko",
+            "大姐"
+        ]
+    },
+    {
+        "characterId": 28,
+        "name": "kaito",
+        "fullName": "KAITO",
+        "fullNameChinese": "KAITO",
+        "aliases": [
+            "kaito",
+            "大哥"
+        ]
+    },
+    {
+        "characterId": 29,
+        "name": "miku",
+        "fullName": "初音ミク",
+        "fullNameChinese": "初音未来",
+        "aliases": [
+            "miku",
+            "初音",
+            "葱"
+        ]
+    },
+    {
+        "characterId": 30,
+        "name": "rin",
+        "fullName": "鏡音リン",
+        "fullNameChinese": "镜音铃",
+        "aliases": [
+            "rin",
+            "铃",
+            "橘子"
+        ]
+    },
+    {
+        "characterId": 31,
+        "name": "len",
+        "fullName": "鏡音レン",
+        "fullNameChinese": "镜音连",
+        "aliases": [
+            "len",
+            "连",
+            "香蕉"
+        ]
+    },
+    {
+        "characterId": 32,
+        "name": "luka",
+        "fullName": "巡音ルカ",
+        "fullNameChinese": "巡音流歌",
+        "aliases": [
+            "luka",
+            "流歌",
+            "章鱼"
+        ]
+    },
+    {
+        "characterId": 33,
+        "name": "anon",
+        "fullName": "千早愛音",
+        "fullNameChinese": "千早爱音",
+        "aliases": [
+            "爱音",
+            "anon",
+            "ano酱"
+        ]
+    },
+    {
+        "characterId": 34,
+        "name": "soyo",
+        "fullName": "長崎そよ",
+        "fullNameChinese": "长崎素世",
+        "aliases": [
+            "素世",
+            "soyo"
+        ]
+    },
+    {
+        "characterId": 35,
+        "name": "tomori",
+        "fullName": "高松燈",
+        "fullNameChinese": "高松灯",
+        "aliases": [
+            "灯",
+            "tomori",
+            "tomorin"
+        ]
+    },
+    {
+        "characterId": 36,
+        "name": "taki",
+        "fullName": "椎名立希",
+        "fullNameChinese": "椎名立希",
+        "aliases": [
+            "立希",
+            "taki"
+        ]
+    },
+    {
+        "characterId": 37,
+        "name": "rana",
+        "fullName": "要楽奈",
+        "fullNameChinese": "要乐奈",
+        "aliases": [
+            "乐奈",
+            "rana",
+            "猫猫"
+        ]
+    },
+    {
+        "characterId": 38,
+        "name": "sakiko",
+        "fullName": "豊川祥子",
+        "fullNameChinese": "丰川祥子",
+        "aliases": [
+            "祥子",
+            "saki",
+            "大祥老师"
+        ]
+    },
+    {
+        "characterId": 39,
+        "name": "shirosakiko",
+        "fullNameChinese": "白祥",
+        "aliases": [
+            "白祥",
+            "小祥"
+        ]
+    },
+    {
+        "characterId": 40,
+        "name": "mutsumi",
+        "fullName": "若葉睦",
+        "fullNameChinese": "若叶睦",
+        "aliases": [
+            "睦",
+            "mutsumi",
+            "小睦"
+        ]
+    },
+    {
+        "characterId": 41,
+        "name": "mortis",
+        "fullName": "モーティス",
+        "fullNameChinese": "墨提斯",
+        "aliases": [
+            "mortis",
+            "莫提斯"
+        ]
+    },
+    {
+        "characterId": 42,
+        "name": "uika",
+        "fullName": "三角初華",
+        "fullNameChinese": "三角初华",
+        "aliases": [
+            "初华",
+            "uika"
+        ]
+    },
+    {
+        "characterId": 43,
+        "name": "umiri",
+        "fullName": "八幡海鈴",
+        "fullNameChinese": "八幡海铃",
+        "aliases": [
+            "海铃",
+            "umiri"
+        ]
+    },
+    {
+        "characterId": 44,
+        "name": "nyamu",
+        "fullName": "祐天寺にゃむ",
+        "fullNameChinese": "祐天寺若麦",
+        "aliases": [
+            "若麦",
+            "nyamu",
+            "喵梦"
+        ]
+    }
+]
